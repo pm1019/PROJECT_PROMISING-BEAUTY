@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chirag Electronics</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</head>
+<style>
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    .navbar{
+        height: 100px;
+    }
+    .icon-box {
+        padding: 30px;
+        position: relative;
+        overflow: hidden;
+        margin-left: -300px;
+        background: #fff;
+        box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
+        transition: all 0.3s ease-in-out;
+        border-radius: 15px;
+        border-bottom: 3px solid #fff;
+        background-color: rgb(215, 215, 215);
+        justify-items: center;
+    }
+    .container-fluid
+        {
+            background-color: #62b3c8;
+        }
+</style>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><h1>Chirag Electronics</h1></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="Home.html ">
+                    <h5><strong>Home</strong></h5>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    <div style="margin-left: 300px;">
+        <div class="icon-box">
+            <div class="col-lg-8">
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <label class="labels">DATE</label>
+                        <input type="date" class="form-control" placeholder="first name" value="">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">Category</label>
+                        <br>
+                       <select id="items" style="width: 200px; height: 40px; border:none; border-radius: 5px; ">
+                                <option>Bill Payment</option>
+                                <option>Money Transfer</option>
+                                <option>Moree</option>
+	                    </select>
+                    </div>
+                </div>
+        
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <label class="labels">Mobile Number</label>
+                        <input type="text" class="form-control" placeholder="enter phone number" value="">
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels">Name of Sender</label>
+                        <input type="text" class="form-control" placeholder="Name of Sender" value="">
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels">Bank</label>
+                        <input type="text" class="form-control" placeholder="enter name of Bank " value="">
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels">Account Number </label>
+                        <input type="text" class="form-control" placeholder="enter Account Number" value="">
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels">Account Holder Name</label>
+                        <input type="text" class="form-control" placeholder="enter Account Holder Name" value="">
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels">Amount</label>
+                        <input type="text" class="form-control" placeholder="enter Amount" value="">
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels"> Charge </label>
+                        <input type="text" class="form-control" placeholder="enter Charge " value="">
+                    </div>
+                </div>
+        
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <label class="labels">RECVD </label>
+                        <input type="text" class="form-control" placeholder="enter RECVD" value="">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">BAL</label>
+                        <input type="text" class="form-control" value="" placeholder="enter BAL">
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="col-md-12" >
+                        <label class="labels">TXN Status</label>
+                        <input type="text" class="form-control" value="" placeholder="enter TXN Status">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">Source</label>
+                        <input type="text" class="form-control" value="" placeholder="enter Source">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">REF NO</label>
+                        <input type="text" class="form-control" value="" placeholder="enter REF NO">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">REMARKS </label>
+                        <input type="text" class="form-control" value="" placeholder="enter REMARKS">
+                    </div>
+                </div>
+                
+                <div class="mt-5 text-center"><button class="btn btn-dark profile-button" onclick="fun11()" id="btn1"
+                        type="button">SUMBIT</button></div>
+        
+            </div>
+        </div>
+    </div>
+        
+</body>
+</html>

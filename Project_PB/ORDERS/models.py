@@ -1,5 +1,4 @@
 from django.db import models
-
 from DASHBOARD.models import Customer_details
 from PRODUCT.models import P_Details
 # Create your models here.
@@ -12,3 +11,13 @@ class details(models.Model):
     o_date=models.DateField()
     o_details=models.CharField(max_length=100)
     o_status=models.BooleanField()
+
+
+    def prod_img(self):
+        return self.p_id.p_img
+    def prod_price(self):
+        return self.p_id.p_price
+    def prod_name(self):
+        return self.p_id.p_name
+    def prod_color(self):
+        return self.p_id.p_color    

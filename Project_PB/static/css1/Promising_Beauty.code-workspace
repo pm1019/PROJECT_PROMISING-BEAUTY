@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"name": "Promising_Beauty",
+			"path": "../.."
+		},
+		{
+			"name": "assets",
+			"path": "../../../PROJECT/home page/assets"
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5502,
+		"liveServer.settings.multiRootWorkspaceName": "Promising_Beauty"
+	}
+}

@@ -33,7 +33,7 @@ def register(request):
                 message='Email already Taken..'
             else:
                 user=User.objects.create_user(username=username,first_name=first_name,last_name=last_name,password=password1,email=email)
-                user.save();
+                user.save()
                 print('user created')
                 return redirect('login')
         else:
@@ -42,6 +42,6 @@ def register(request):
     else:
         return render(request,'CustRegLog.html',{'msg':message})    
 
-    def logout(request):
+def logout(request):
         auth.logout(request)
-    return redirect('/')
+        return redirect('/')
