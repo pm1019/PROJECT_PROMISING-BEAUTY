@@ -5,7 +5,7 @@ from PRODUCT.models import P_Details
 from ADD_TO_CART.models import addtobag
 from django.http import HttpResponseRedirect
 # Create your views here.
-def wishlist(request):
+def bag(request):
     u_id=request.user
     bag_detail=addtobag.objects.filter(user_id=u_id.id)
     #prod_detail=Wishlist.objects.select_related()

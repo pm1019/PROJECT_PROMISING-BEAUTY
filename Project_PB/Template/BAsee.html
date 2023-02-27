@@ -104,7 +104,7 @@
                                     <li><a href="dash/dashboard">My Profile</a></li>
                                     <li><a href="order/myorder">My Orders</a></li>
                                     <li><a href="wish/wishlist">My Wishlist</a></li>
-                                    <li><a href="cart/Addtocart">My Bag</a></li>
+                                    <li><a href="{% url 'show_bag' %}">My Bag</a></li>
                                     <li><a href="auth/logout">Log Out</a></li>
                                 </ul>
                             </li>
@@ -131,10 +131,10 @@
                        
                         <ul class="header__right__widget" style="margin-left: -50px;">
                             <li><span class="icon_search search-switch"></span></li>
-                            <li><a href="wish/wishlist"><span class="icon_heart_alt"></span>
+                            <li><a href="{% url 'show_wishlist' %}"><span class="icon_heart_alt"></span>
                                 <div class="tip">2</div>
                             </a></li>
-                            <li><a href="shop-cart/cart"><span class="icon_bag_alt"></span>
+                            <li><a href="{% url 'show_bag' %}"><span class="icon_bag_alt"></span>
                                 <div class="tip">2</div>
                             </a></li>
                         </ul>
