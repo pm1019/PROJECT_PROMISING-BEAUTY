@@ -35,9 +35,8 @@
                                         </div>
                                     </td>
                                     <td class="cart__price text-success">&#8377 {{prod.prod_price}}/-</td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{% url 'add-to-bag' prod.product_id %}"><span class="icon_bag_alt fa-2x"></span></a></span></td>
-                                    <td class="cart__close"><span class="icon_close"></span></td>
-                                   
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{% url 'add-to-bag' prod.product_id %}"><span class="icon_bag_alt fa-2x"></span></a></td>
+                                    <td class="cart__close"><a href="{% url 'remove_wish' prod.product_id %}"><span class="icon_close"></span></a></td>
                                 </tr>
                                 {% endfor %}
                             </tbody>
