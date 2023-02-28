@@ -10,8 +10,8 @@ def product(request):
     Prods=P_Details.objects.all()
     return render(request,'shop.html',{'Prods':Prods})
 
-def prods_detail(request,id):
-    detail=P_Details.objects.get(p_id=id)
+def prod_detail(request,id):
+    detail=P_Details.objects.get(product_id=id)
     return render(request,'product-details.html',{'data':detail})
 
 def addToWishlist(request,id):
