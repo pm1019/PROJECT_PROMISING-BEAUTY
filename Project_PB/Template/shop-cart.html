@@ -37,27 +37,26 @@
                             <thead>
                                 <tr>
                                     <th>Product</th>
+                                    <th>Details</th>
                                     <th>Price</th>
-                                    <th>Quantity</th>
-                                    <th>Total</th>
+                                    <th>Status</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {% for prod in bag_data %}
                                 <tr>
-                                    <td class="cart__product__item">
-                                        <img src="{{prod.prod_img.url}}" alt="">
+                                    <td class="cart__product__item" style="width:400px;">
+                                        <img src="{{prod.prod_img.url}}" alt="" style="height: 400px; width:300px;">
+                                    </td>
+                                    <td >
                                         <div class="cart__product__item__title">
-                                            <h6>{{prod.prod_name}}</h6>
-                                            <div class="rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                        </div>
+                                        <h5>{{prod.prod_name}}</h5>
+                                        <div class="rating text-danger">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
                                     </td>
                                     <td class="cart__price text-success">&#8377 <span id="prc">{{prod.prod_price}}</span></td>
                                     <td class="cart__quantity">
