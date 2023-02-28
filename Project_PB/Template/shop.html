@@ -216,7 +216,7 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="{% url 'product-detail' Prod.product_id %}">{{Prod.p_name}}</a></h6>
+                                    <h6><a target="_blank" href="{% url 'product-detail' Prod.product_id %}">{{Prod.p_name}}</a></h6>
                                     <div class="rating">
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
@@ -228,8 +228,9 @@
                                 </div>
                             </div>
                         </div>
-                        </div>
                         {% endfor %}
+                        </div>
+                       
                         
                        <!-- <div class="col-lg-4 col-md-6">
                             <div class="product__item">
