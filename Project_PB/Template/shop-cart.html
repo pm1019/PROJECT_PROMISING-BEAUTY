@@ -3,6 +3,14 @@
     {% block content %}
 
     {% load static %}
+    <style>
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }
+    </style>
 
     <!-- Breadcrumb Begin -->
     <div class="breadcrumb-option">
@@ -51,13 +59,15 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="cart__price text-success">&#8377 {{prod.prod_price}}</td>
+                                    <td class="cart__price text-success">&#8377 <span id="prc">{{prod.prod_price}}</span></td>
                                     <td class="cart__quantity">
-                                        <div class="pro-qty">
-                                            <input type="text" value="1">
+                                        <div class="">
+                                            <button onclick="decrement({{prod.prod_price}})">-</button>
+                                            <input type="number" value="1" id="demoInput" min=1 max=10>
+                                            <button onclick="increment({{prod.prod_price}})">+</button>
                                         </div>
                                     </td>
-                                    <td class="cart__total text-success">&#8377 999/-</td>
+                                    <td class="cart__total text-success">&#8377 <span id="tot">{{prod.prod_price}}</span>/-</td>
                                     <td class="cart__close"><a href="{% url 'remove_bag' prod.product_id %}"><span class="icon_close"></span></a></td>
                                 </tr>
                                 {% endfor %}
@@ -88,7 +98,8 @@
                     <div class="cart__total__procced text-success">
                         <h6>Cart total</h6>
                         <ul>
-                            <li>Subtotal <span>&#8377 999/-</span></li>
+                            <li>Price <span>&#8377 999/-</span></li>
+                            <li>Delivery Charge <span>&#8377 999/-</span></li>
                             <li>Total <span>&#8377 999/-</span></li>
                         </ul>
                         <a href="#" class="primary-btn">Proceed to checkout</a>
@@ -98,5 +109,21 @@
         </div>
     </section>
     <!-- Shop Cart Section End -->
+    <script>
+        function increment(prc) {
+           document.getElementById('demoInput').stepUp();
+           var price=prc;
+           var qty=document.getElementById('demoInput').value;
+           var tot = document.getElementById('tot').innerHTML=price*qty;
+           //tot.value="total";
+        }
+        function decrement(prc) {
+           document.getElementById('demoInput').stepDown();
+           var price=prc;
+           var qty=document.getElementById('demoInput').value;
+           var tot = document.getElementById('tot').innerHTML=price*qty;
+        }
+    </script>
 
     {% endblock %}
+    
