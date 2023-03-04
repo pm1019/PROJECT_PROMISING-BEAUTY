@@ -4,7 +4,7 @@ from . import views
 urlpatterns = [
     path('custom',views.custom,name="custom"),
     path('hoops',views.hoops,name="hoops"),
-    path('bestperson',views.bestperson,name="bestperson"),
+     path('bestperson',views.bestperson,name="bestperson"),
     path('bestperson1',views.bestperson1,name="bestperson1"),
     path('bestperson2',views.bestperson2,name="bestperson2"),
     path('namehoop',views.namehoop,name="namehoop"),
@@ -16,4 +16,10 @@ urlpatterns = [
     path('birthdayhoop',views.birthdayhoop,name="birthdayhoop"),
     path('birthdayhoop1',views.birthdayhoop1,name="birthdayhoop1"),
     path('birthdayhoop2',views.birthdayhoop2,name="birthdayhoop2"),
+    path('dress',views.dress,name="dress"),
+    path('pearshape',views.pearshape,name="pearshape"),
+    path('invertedshape',views.invertedshape,name="invertedshape"),
+    path('appleshape',views.appleshape,name="appleshape"),
+    path('rectangleshape',views.rectangleshape,name="rectangleshape"),
+    path('hourglassshape',views.hourglassshape,name="hourglassshape")
 ]

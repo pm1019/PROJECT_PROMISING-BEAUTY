@@ -255,43 +255,58 @@
 <section id="services" class="services section-bg">
     
 <div class="row">
-    
-         <div class="col-lg-4">
-            <div class="container" data-aos="fade-up">
-            <div class="section-title">
-            <p>Choose Wedding Layout</p>
+    <div class="col-lg-4">
+        <div class="container" data-aos="fade-up" style="margin-top:-50px;">
+            <div class="section-title" style="margin-top: 20px;">
+                <p>Your Selected Layout</p>
             </div>
             <div class="col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-                
+
             </div>
             <div class="row">
-            <div class="col-lg-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300" style="width: 540px;
-            height: 550px;">
-                    <div class="icon-box">
-                        <div class="icon"><img src="wedding1.jpg" class="img-fluid" alt="image" style="width: 180px ; height:156px"></div>
-                        <h4 class="title"><a href="">LAYOUT 1</a></h4>
+                <div class=" col-lg-12 d-flex align-items-stretch dress-align" data-aos="zoom-in" data-aos-delay="300"
+                    style="width:300px; margin-right:-20px; margin-top :-80px; margin-left:80px;">
+                    <a href="{% url 'pearshape' %}">
+                        <div class="icon-box" style="height :500px;">
+                            <div class="icon"><img src="{% static 'img1/body type (2).jpg' %}" class="img-fluid"
+                                    alt="image"></div>
                         </div>
+                    </a>
+                </div>
             </div>
-    
-            
-            <div class="col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="400">
-               
-            </div>
-            </div>
-            </div>
-       </div>
+        </div>
+    </div>
        
-       <div class="col-lg-6" style="margin-top:8px;">
-        <div class="section-title" style="margin-top: 311px;">
+       <div class="col-lg-6" style="margin-top:-28px;">
+        <div class="section-title">
             <h2><p>This is your customized product!</p></h2>
-            <p>Click here to re-edit.</p>
-            <a href="weddinghoop.html">
-                <button class="btn btn-outline-info">
-                    EDIT<i class='bx bx-md bxs-pencil' ></i>
-                </button>
-            </a>
+            {% for Prod in Prods %}
+                        <div class="col-lg-3 col-md-4 col-sm-6 mix women">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="{{Prod.p_img.url}}">
+                                    <div class="label new">{{Prod.p_label}}</div>
+                                    <ul class="product__hover">
+                                        <li><a href="{{Prod.p_img.url}}" class="image-popup"><span class="arrow_expand"></span></a></li>
+                                        <li><a href="add-to-wishlist/{{Prod.product_id}}"><span class="icon_heart_alt"></span></a></li>
+                                        <li><a href="add-to-bag/{{Prod.product_id}}"><span class="icon_bag_alt"></span></a></li>
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                    <h6><a href="#">{{Prod.p_name}}</a></h6>
+                                    <div class="rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product__price text-success">&#8377  {{Prod.p_price}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
             </div>
-           
        </div>
 </div>
 </div>
