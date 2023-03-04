@@ -155,6 +155,11 @@
         width: 216px;
         height: 255px;
       }
+      .square  {
+        height: 50px;
+        width: 50px;
+        margin-left: 10px;
+      }
 
       /*----------------COMPLETED CUSTOMIZATION CSS------------------*/
     </style>
@@ -251,135 +256,77 @@
     </header>
     <!-- Header Section End -->
 
-  <section id="services" class="services section-bg">
+    <div class="row">
 
-      <div class="row justify-content-center">
-        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-            <div class="row justify-content-center">
-              <div class="row justify-content-center">
-              <div class="col-lg-6" style="margin-top:8px;">
-                <div class="section-title ">
-                  <p>Enter Details!</p>
+        <div class="col-lg-4">
+            <div class="container" data-aos="fade-up">
+                <div class="section-title" style="margin-top: 20px;">
+                    <p>Your Selected Layout</p>
                 </div>
-              </div> 
-              </div>
-              <div class="row justify-content-center">
-                <div class="col-lg-4">
-                  <div class="d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
-  
-                    <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                      <div class="form-group">
-                        <div class="icon-box">
+                <div class="col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
     
-                          <input type="image" class="img-fluid" src="{% static 'img1/bd5.jpg' %}" id="bodytype" required>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
                 </div>
-                <div class="col-lg-6">
-                  <div class="form-group col-lg-6">
-                    <label for="SIZE">Choose your size:</label>
-                    <select class="form-control" id="size" name="size">
-                      <option value="small">S</option>
-                      <option value="medium">M</option>
-                      <option value="large">L</option>
-                      <option value="extra large">XL</option>
-                      <option value="extra extra large">XXL</option>
-                    </select>
-                  </div>
-                  <div class="form-group col-lg-6">
-                    <label for="FABRIC">Choose fabric you want:</label>
-                    <select class="form-control" id="fabric" name="fabric">
-                      <option value="silk">SILK</option>
-                      <option value="capsule">CAPSULE</option>
-                      <option value="jaipuri">JAIPURI</option>
-                      <option value="southcotton">SOUTHCOTTON</option>
-                      <option value="cotton">COTTON</option>
-                    </select>
-                  </div>
-                  <div class="form-group col-lg-6   " >
-                    <label for="FABRIC">Choose color you want:</label>
-                    <select class="form-control" id="fabric" name="fabric">
-                      <option value="printed">PRINTED</option>
-                      <option value="pink" class="text-light fs-6" style="background-color: rgb(243, 16, 118);">PINK</option>
-                      <option value="babypink" class="text-dark fs-6" style="background-color: pink;">BABYPINK</option>
-                      <option value="bottle green" class="text-light fs-6" style="background-color: rgb(7, 41, 12);">BOTTLE
-                        GREEN</option>
-                      <option value="cotton" class="text-dark fs-6" style="background-color:rgb(148, 229, 247) ">BLUE</option>
-                      <option value="cotton " class="text-light fs-6" style="background-color: rgb(16, 16, 54);">NAVY BLUE
-                      </option>
-                      <option value="cotton" class="text-light fs-6" style="background-color: rgb(113, 27, 27);">BROWN
-                      </option>
-                    </select>
-                  </div>
-                  <div class="col-lg-12">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">Your message has been sent. Thank you!</div>
-                  </div>
-                  <div class="text-left"><button class="btn btn-dark" type="submit">Final Product Layout!</button></div>
-               </div> 
-              </form>
+                <div class="row">
+                    <div class=" col-lg-12 d-flex align-items-stretch dress-align" data-aos="zoom-in" data-aos-delay="300"
+                        style="width:300px; margin-right:-20px; margin-top :-80px; margin-left:80px;">
+                        <a href="{% url 'appleshape' %}">
+                            <div class="icon-box" style="height :500px;">
+                                <div class="icon"><img src="{% static 'img1/bd5.jpg' %}"class="img-fluid"
+                                        alt="image"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-  </section>
+    
+        <div class="col-lg-6" style="margin-top:30px;">
+            <div class="section-title">
+                <p>Enter Details!</p>
+            </div>
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <div class="row" style="color: black;">
+                    <div class="form-group col-md-6">
+                        <label for="SIZE">Choose your size:</label>
+                        <select class="form-control" id="size" name="size">
+                            <option value="small">S</option>
+                            <option value="medium">M</option>
+                            <option value="large">L</option>
+                            <option value="extra large">XL</option>
+                            <option value="extra extra large">XXL</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="FABRIC">Choose fabric you want:</label>
+                        <select class="form-control" id="fabric" name="fabric">
+                            <option value="silk">SILK</option>
+                            <option value="capsule">CAPSULE</option>
+                            <option value="jaipuri">JAIPURI</option>
+                            <option value="southcotton">SOUTHCOTTON</option>
+                            <option value="cotton">COTTON</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row" style="color: black;">
+                    <div class="form-group col-lg-8">
+                        <div class="row">
+                            <label for="FABRIC">Choose color you want:</label>
+                            <input type="button" class="square btn" style="background-color:rgb(243, 16, 118);"
+                                name="darkpinkk">
+                            <input type="button" class="square btn" style="background-color:pink;" name="lightpink">
+                            <input type="button" class="square btn" style="background-color:rgb(192, 18, 18);" name="red">
+                            <input type="button" class="square btn" style="background-color:black;" name="black">
+                            <input type="button" class="square btn" style="background-color:yellow;" name="yellow">
+                        </div>
+                        <br>
+                    </div>
+                </div>
+                <div class="text-center"><button class="btn btn-dark" type="submit">Final Product Layout!</button></div>
+            </form>
+        </div>
+    </div>
   
-    <!-- Instagram Begin -->
-    <div class="instagram">
-      <div class="container-fluid">
-          <div class="row">
-              <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                  <div class="instagram__item set-bg" data-setbg="{% static 'img/instagram/insta-1.jpg' %}">
-                      <div class="instagram__text">
-                          <i class="fa fa-instagram"></i>
-                          <a href="#">@knott_your_vision</a>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                  <div class="instagram__item set-bg" data-setbg="{% static 'img/instagram/insta-2.jpg' %}">
-                      <div class="instagram__text">
-                          <i class="fa fa-instagram"></i>
-                          <a href="#">@knott_your_vision</a>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                  <div class="instagram__item set-bg" data-setbg="{% static 'img/instagram/insta-3.jpg' %}">
-                      <div class="instagram__text">
-                          <i class="fa fa-instagram"></i>
-                          <a href="#">@knott_your_vision</a>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                  <div class="instagram__item set-bg" data-setbg="{% static 'img/instagram/insta-4.jpg' %}">
-                      <div class="instagram__text">
-                          <i class="fa fa-instagram"></i>
-                          <a href="#">@knott_your_vision</a>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                  <div class="instagram__item set-bg" data-setbg="{% static 'img/instagram/insta-5.jpg' %}">
-                      <div class="instagram__text">
-                          <i class="fa fa-instagram"></i>
-                          <a href="#">@knott_your_vision</a>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                  <div class="instagram__item set-bg" data-setbg="{% static 'img/instagram/insta-6.jpg' %}">
-                      <div class="instagram__text">
-                          <i class="fa fa-instagram"></i>
-                          <a href="#">@knott_your_vision</a>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-  <!-- Instagram End -->
+   
 
   <!-- Footer Section Begin -->
   <footer class="footer">

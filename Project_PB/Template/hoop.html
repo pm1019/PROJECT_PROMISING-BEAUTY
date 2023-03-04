@@ -190,7 +190,7 @@
             <div class="row">
                 <div class="col-xl-3 col-lg-2">
                     <div class="header__logo">
-                        <a href="./index.html"><h4>Promising Beauty</h4></a>
+                        <a href="./index.html"><h3>Promising Beauty</h3></a>
                     </div>
                 </div>
                 <div class=" col-xl-6 col-lg-7">
@@ -253,7 +253,7 @@
 
       <section id="services" class="services section-bg">
         <div class="container" data-aos="fade-up">
-          <div class="section-title">
+          <div class="section-title" style="margin-top: -50px;">
             <h2>Customization</h2>
             <p>Select your layout to be CUSTOMIZED!</p>
           </div>
@@ -262,40 +262,42 @@
             <div class="col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
               
             </div>
-            <div class="row">
+            <div class="row" style="margin-top: -30px;">
             <div class="col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
-             <a href="weddinghoop">
+             <a href="{% url 'weddinghoop' %}">
               <div class="icon-box">
                 <div class="icon"><img src="{% static 'img1/wedding1.jpg' %}" class="img-fluid" alt="image" style="width: 180px ; height:156px"></div>
-                <h4 class="title"><a href="">Wedding Hoop</a></h4>
+                <br>
+                <h3 class="title"><a href="">Wedding Hoop</a></h3>
               </div>
              </a>
             </div>
 
   
             <div class="col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
-              <a href="birthdayhoop">
+              <a href="{% url 'birthdayhoop' %}">
                 <div class="icon-box">
                   <div class="icon"><img src="{% static 'img1/birthdayhoop1.jpg' %}" class="img-fluid" alt="image" style="width:156px; height:156px"></div>
-                  <h4 class="title"><a href="">Birthday Hoop</a></h4>
+                  <br>
+                  <h3 class="title"><a href="">Birthday Hoop</a></h3>
                   </div>
               </a>
             </div>
   
             <div class="col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
-              <a href="bestperson" class="href">
+              <a href="{% url 'bestperson' %}" class="href">
                 <div class="icon-box">
                   <div class="icon"><img src="{% static 'img1/bestpersonhoop1.jpg' %}" class="img-fluid" alt="image" style="width:156px; height:156px"></div>
-                  <h4 class="title"><a href="">Best Friend Hoop</a></h4>
+                  <h3 class="title"><a href="">Best Friend Hoop</a></h3>
                   </div>
               </a>
             </div>
   
             <div class="col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
-              <a href="namehoop">
+              <a href="{% url 'namehoop' %}">
                 <div class="icon-box">
                   <div class="icon"><img src="{% static 'img1/name1.jpg' %}" class="img-fluid" alt="image" style="width:156px; height:156"></div>
-                  <h4 class="title"><a href="">Name Hoop</a></h4>
+                  <h3 class="title"><a href="">Name Hoop</a></h3>
                   </div>
               </a>
             </div>
@@ -310,62 +312,7 @@
         </div>
       </section>
 
-    <!-- Instagram Begin -->
-    <div class="instagram">
-      <div class="container-fluid">
-          <div class="row">
-              <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                  <div class="instagram__item set-bg" data-setbg="{% static 'img/instagram/insta-1.jpg' %}">
-                      <div class="instagram__text">
-                          <i class="fa fa-instagram"></i>
-                          <a href="#">@knott_your_vision</a>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                  <div class="instagram__item set-bg" data-setbg="{% static 'img/instagram/insta-2.jpg' %}">
-                      <div class="instagram__text">
-                          <i class="fa fa-instagram"></i>
-                          <a href="#">@knott_your_vision</a>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                  <div class="instagram__item set-bg" data-setbg="{% static 'img/instagram/insta-3.jpg' %}">
-                      <div class="instagram__text">
-                          <i class="fa fa-instagram"></i>
-                          <a href="#">@knott_your_vision</a>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                  <div class="instagram__item set-bg" data-setbg="{% static 'img/instagram/insta-4.jpg' %}">
-                      <div class="instagram__text">
-                          <i class="fa fa-instagram"></i>
-                          <a href="#">@knott_your_vision</a>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                  <div class="instagram__item set-bg" data-setbg="{% static 'img/instagram/insta-5.jpg' %}">
-                      <div class="instagram__text">
-                          <i class="fa fa-instagram"></i>
-                          <a href="#">@knott_your_vision</a>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-2 col-md-4 col-sm-4 p-0">
-                  <div class="instagram__item set-bg" data-setbg="{% static 'img/instagram/insta-6.jpg' %}">
-                      <div class="instagram__text">
-                          <i class="fa fa-instagram"></i>
-                          <a href="#">@knott_your_vision</a>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-  <!-- Instagram End -->
+    
 
   <!-- Footer Section Begin -->
   <footer class="footer">

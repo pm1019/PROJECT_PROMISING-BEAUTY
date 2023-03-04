@@ -63,3 +63,11 @@ def show_bag(request):
         'bag_data':bag_data
     }
     return render(request,'shop-cart.html',context)        
+
+def search(request):
+    src=request.GET["prod_name"]
+    if src=='':
+        return redirect('shop')
+    else:
+        data=P_Details.objects.filter(p_name=src)
+        return render(request,'shop.html',{'data':data})
