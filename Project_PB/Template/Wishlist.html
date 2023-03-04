@@ -13,6 +13,7 @@
                             <thead>
                                 <tr>
                                     <th>Product</th>
+                                    <th>Details</th>
                                     <th>Price</th>
                                     <th>Move to Cart</th>
                                     <th></th>
@@ -21,23 +22,21 @@
                             <tbody>
                                 {% for prod in wish_data %}
                                 <tr>
-                                    <td class="cart_product_item">
-                                        <img src="{{prod.prod_img.url}}" alt="" style="height: 300px; width:250px">
-                                        <div class="cart_productitem_title">
-                                            <h6>{{prod.prod_name}}</h6>
-                                            <div class="rating" style="color:green">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                        </div>
+                                    <td class="cart__product__item" style="width:400px;">
+                                        <img src="{{prod.prod_img.url}}" alt="" style="height: 400px; width:300px;">
                                     </td>
-                                    <td class="cart__price text-success">&#8377 {{prod.prod_price}}</td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="icon_bag_alt fa-2x"></span></td>
-                                    <td class="cart__close"><span class="icon_close"></span></td>
-                                   
+                                    <td >
+                                        <div class="cart__product__item__title">
+                                        <h5>{{prod.prod_name}}</h5>
+                                        <div class="rating text-danger">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                    </td>
+                                    <td class="cart__price text-success">&#8377 {{prod.prod_price}}/-</td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{% url 'add-to-bag' prod.product_id %}"><span class="icon_bag_alt fa-2x"></span></a></td>
+                                    <td class="cart__close"><a href="{% url 'remove_wish' prod.product_id %}"><span class="icon_close"></span></a></td>
                                 </tr>
                                 {% endfor %}
                             </tbody>
@@ -48,7 +47,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="cart__btn">
-                        <a href="#">Continue Shopping</a>
+                        <a href="{% url 'shop' %}">Continue Shopping</a>
                     </div>
                 </div>
             </div>
@@ -57,11 +56,7 @@
                 </div>
                 <div class="col-lg-4 offset-lg-2">
                     <div class="discount__content">
-                        <h6>Discount codes</h6>
-                        <form action="#">
-                            <input type="text" placeholder="Enter your coupon code">
-                            <button type="submit" class="site-btn">Apply</button>
-                        </form>
+                        
                     </div>
                 </div>
             </div>

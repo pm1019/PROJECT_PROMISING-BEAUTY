@@ -24,7 +24,10 @@ class P_Details(models.Model):
     p_type=models.CharField(max_length=30)
     p_fabric=models.CharField(max_length=30)
     p_size=models.CharField(max_length=30)
-    p_img=models.ImageField(upload_to='Products')
+    p_img=models.ImageField(upload_to='Products',null=True)
+    p_img1=models.ImageField(upload_to='Products',null=True)
+    p_img2=models.ImageField(upload_to='Products',null=True)
+    p_img3=models.ImageField(upload_to='Products',null=True)
     p_desc=models.CharField(max_length=100)
     p_color=models.CharField(max_length=50)
 

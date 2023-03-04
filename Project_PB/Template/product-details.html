@@ -12,7 +12,7 @@
                     <div class="breadcrumb__links">
                         <a href="./index.html"><i class="fa fa-home"></i> Home</a>
                         <a href="#">Women’s </a>
-                        <span>Essential structured blazer</span>
+                        <span>{{data.p_name}}</span>
                     </div>
                 </div>
             </div>
@@ -29,42 +29,40 @@
                     <div class="product__details__pic">
                         <div class="product__details__pic__left product__thumb nice-scroll">
                             <a class="pt active" href="#product-1">
-                                <img src="{% static 'img/product/details/thumb-1.jpg' %}" alt="">
+                                <img src="{{data.p_img.url}}" alt="">
                             </a>
                             <a class="pt" href="#product-2">
-                                <img src="{% static 'img/product/details/thumb-2.jpg' %}" alt="">
+                                <img src="{{data.p_img1.url}}" alt="">
                             </a>
                             <a class="pt" href="#product-3">
-                                <img src="{% static 'img/product/details/thumb-3.jpg' %}" alt="">
+                                <img src="{{data.p_img2.url}}" alt="">
                             </a>
                             <a class="pt" href="#product-4">
-                                <img src="{% static 'img/product/details/thumb-4.jpg' %}" alt="">
+                                <img src="{{data.p_img3.url}}" alt="">
                             </a>
                         </div>
                         <div class="product__details__slider__content">
                             <div class="product__details__pic__slider owl-carousel">
-                                <img data-hash="product-1" class="product__big__img" src="{% static 'img/product/details/product-1.jpg' %}" alt="">
-                                <img data-hash="product-2" class="product__big__img" src="{% static 'img/product/details/product-3.jpg' %}" alt="">
-                                <img data-hash="product-3" class="product__big__img" src="{% static 'img/product/details/product-2.jpg' %}" alt="">
-                                <img data-hash="product-4" class="product__big__img" src="{% static 'img/product/details/product-4.jpg' %}" alt="">
+                                <img data-hash="product-1" class="product__big__img" src="{{data.p_img.url}}" alt="">
+                                <img data-hash="product-2" class="product__big__img" src="{{data.p_img1.url}}" alt="">
+                                <img data-hash="product-3" class="product__big__img" src="{{data.p_img2.url}}" alt="">
+                                <img data-hash="product-4" class="product__big__img" src="{{data.p_img3.url}}" alt="">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="product__details__text">
-                        <h3>Essential structured blazer <span>Brand: SKMEIMore Men Watches from SKMEI</span></h3>
+                        <h3>{{data.p_name}}</h3>
                         <div class="rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
-                            <span>( 138 reviews )</span>
                         </div>
-                        <div class="product__details__price">$ 75.0 <span>$ 83.0</span></div>
-                        <p>Nemo enim ipsam voluptatem quia aspernatur aut odit aut loret fugit, sed quia consequuntur
-                        magni lores eos qui ratione voluptatem sequi nesciunt.</p>
+                        <div class="product__details__price">&#8377; {{data.p_price}}<span></span></div>
+                        <p>{{data.p_desc}}</p>
                         <div class="product__details__button">
                             <div class="quantity">
                                 <span>Quantity:</span>
@@ -72,24 +70,13 @@
                                     <input type="text" value="1">
                                 </div>
                             </div>
-                            <a href="#" class="cart-btn"><span class="icon_bag_alt"></span> Add to cart</a>
+                            <a href="{% url 'add-to-bag' data.product_id %}" class="cart-btn"><span class="icon_bag_alt"></span> Add to cart</a>
                             <ul>
-                                <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                                <li><a href="#"><span class="icon_adjust-horiz"></span></a></li>
+                                <li><a href="{% url 'add-to-wishlist' data.product_id %}"><span class="icon_heart_alt"></span></a></li>
                             </ul>
                         </div>
                         <div class="product__details__widget">
                             <ul>
-                                <li>
-                                    <span>Availability:</span>
-                                    <div class="stock__checkbox">
-                                        <label for="stockin">
-                                            In Stock
-                                            <input type="checkbox" id="stockin">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </div>
-                                </li>
                                 <li>
                                     <span>Available color:</span>
                                     <div class="color__checkbox">
@@ -127,10 +114,6 @@
                                             l
                                         </label>
                                     </div>
-                                </li>
-                                <li>
-                                    <span>Promotions:</span>
-                                    <p>Free shipping</p>
                                 </li>
                             </ul>
                         </div>

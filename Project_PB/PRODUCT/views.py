@@ -10,11 +10,9 @@ def product(request):
     Prods=P_Details.objects.all()
     return render(request,'shop.html',{'Prods':Prods})
 
-def prods_detail(request,id):
-    detail=P_Details.objects.get(p_id=id)
+def prod_detail(request,id):
+    detail=P_Details.objects.get(product_id=id)
     return render(request,'product-details.html',{'data':detail})
-
-
 
 def addToWishlist(request,id):
     prod=id
@@ -35,6 +33,12 @@ def show_wish(request):
     }
     return render(request,'Wishlist.html',context)
 
+def remove_wish(request,id):
+    u_id=request.user
+    items=Wishlist.objects.get(product_id=id,user_id=u_id.id)        
+    items.delete()
+    return redirect('show_wishlist') 
+
 def addTobag(request,id):
     prod=id
     u_id=request.user
@@ -44,7 +48,13 @@ def addTobag(request,id):
         return redirect('show_bag')
     else:  
         addtobag.objects.create(bag_id=b_id,product_id=prod,user_id=u_id.id)
-        return redirect('show_bag')         
+        return redirect('show_bag')
+    
+def remove_bag(request,id):
+    u_id=request.user
+    item=addtobag.objects.get(product_id=id,user_id=u_id.id)
+    item.delete()
+    return redirect('show_bag')
 
 def show_bag(request):
     u_id=request.user
