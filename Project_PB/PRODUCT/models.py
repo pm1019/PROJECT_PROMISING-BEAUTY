@@ -1,8 +1,6 @@
 from django.db import models
 from DASHBOARD.models import Customer_details
 
-
-
 # Create your models here.
 class Cat(models.Model):
     cat_id=models.IntegerField(primary_key=True)
@@ -30,6 +28,7 @@ class P_Details(models.Model):
     p_img3=models.ImageField(upload_to='Products',null=True)
     p_desc=models.CharField(max_length=100)
     p_color=models.CharField(max_length=50)
+    p_filter=models.CharField(max_length=20,default=0)
 
 class Add_to_cart(models.Model):
     cart_id=models.IntegerField(primary_key=True)

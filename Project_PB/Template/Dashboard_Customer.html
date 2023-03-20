@@ -10,8 +10,8 @@
             <div class="col-md-3 border-right">
                 <div class="d-flex flex-column align-items-center text-center p-3 py-2">
                     <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
-                    <span class="font-weight-bold">Zarna Pathak</span>
-                    <span class="text-black-50">zarnapathak@gmail.com.my</span>
+                    <span class="font-weight-bold">{{user.first_name}} {{user.last_name}}</span>
+                    <span class="text-black-50">{{user.email}}</span>
                     <span> <h1>  </h1></span>
                     <span> <h1>  </h1></span>
                     <span> <h1>  </h1></span>
@@ -19,15 +19,15 @@
                     <span> <h1>  </h1></span>
                     <span> <h1>  </h1></span>
                     <span> <h1>  </h1></span>
-                    <a href="orderdetail.html" class="w-100">
-                        <button class="btn btn-outline-dark w-100">
-                            My Orders
-                        </button>
+                    <a href="{% url 'order' %}" class="w-100">
+                      <button class="btn btn-outline-dark w-100">My Orders</button>
                     </a>
                     <span> <h1>  </h1></span>
                     <span> <h1>  </h1></span>
                     <span> <h1>  </h1></span>
-                    <button class="btn btn-outline-dark w-100">Log Out</button>
+                    <a href="{% url 'logout' %}" class="w-100">
+                      <button class="btn btn-outline-dark w-100">Log Out</button>
+                    </a>
                 </div>
             </div>
             <div class="col-md-5 border-right">
@@ -35,26 +35,28 @@
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <h5 class="text-right">Profile Settings</h5>
                         </div>
-                        <form method="POST" action="DASHBOARD">
+                        <form method="POST" action="{% url 'dash' %}">
                             {% csrf_token %}
                             <div class="row mt-2">
-                                <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" name="Name" value=""></div>
-                                <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" name="Surname" value="" placeholder="surname"></div>
+                                <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" name="Name" value="{{user.first_name}}"></div>
+                                <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" name="Surname" value="{{user.last_name}}" placeholder="surname"></div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" name="Mobile Number" placeholder="enter phone number"  value=""></div>
-                                <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" name="Address Line 1" placeholder="enter address line 1" value=""></div>
-                                <div class="col-md-12"><label class="labels">Address Line 2</label><input type="text" class="form-control" name="Address Line 2" placeholder="enter address line 2" value=""></div>
-                                <div class="col-md-12"><label class="labels">Postcode</label><input type="text" class="form-control" name="Postcode" placeholder="enter address line 2" value=""></div>
-                                <div class="col-md-12"><label class="labels">State</label><input type="text" class="form-control" name="State" placeholder="enter address line 2" value=""></div>
-                                <div class="col-md-12"><label class="labels">Area</label><input type="text" class="form-control" name="Area" placeholder="enter address line 2" value=""></div>
-                                <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" name="Email ID" placeholder="enter email id" value=""></div>
+                                <div class="col-md-12"><label class="labels">Address Home</label><input type="text" class="form-control" name="Address home" placeholder="enter Home address" value=""></div>
+                                <div class="col-md-12"><label class="labels">Address Office</label><input type="text" class="form-control" name="Address office" placeholder="enter Office address" value=""></div>
+                                <div class="col-md-12"><label class="labels">Area</label><input type="text" class="form-control" name="Area" placeholder="Area" value=""></div>
+                                <div class="col-md-12"><label class="labels">Postcode</label><input type="text" class="form-control" name="Postcode" placeholder="Postcode" value=""></div>
+                                <div class="col-md-12"><label class="labels">State</label><input type="text" class="form-control" name="State" placeholder="State" value=""></div>
+                                <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" name="Country" placeholder="country" value=""></div>
                             </div>
                             <div class="row mt-3">
-                                <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" name="Country" placeholder="country" value=""></div>
-                                <div class="col-md-6"><label class="labels">State/Region</label><input type="text" class="form-control"  name="State/Region"  value="" placeholder="state"></div>
+                              <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" name="Email ID" placeholder="enter email id" value="{{user.email}}"></div>
                             </div>
-                            <div class="mt-5 text-center"><button class="btn btn-primary profile-button" onclick="fun11()" id="btn1" type="submit">Save Profile</button>
+                            <div class="mt-5 text-center">
+                              <a href="{% url 'dash' %}">
+                                <button class="btn btn-primary profile-button" onclick="fun11()" id="btn1" type="submit">Save Profile</button>
+                              </a>
                             </div>
                         </form>
                     </div>   
@@ -67,17 +69,17 @@
                               <tr>
                                 <th scope="row">1</th>
                                 <td>Name</td>
-                                <td>Zarna</td> 
+                                <td>{{user.first_name}}</td> 
                               </tr>
                               <tr>
                                 <th scope="row">2</th>
                                 <td>Surname</td>
-                                <td>Pathak</td>
+                                <td>{{user.last_name}}</td>
                               </tr>
                               <tr>
                                 <th scope="row">3</th>
                                 <td>Mobile No</td>
-                                <td>+91 9377609440</td>
+                                <td>+91 {{cust_detail.cust_phoneno}}</td>
                               </tr>
                                <tr>
                                 <th scope="row">4</th>
@@ -127,5 +129,14 @@
         </div>
     </div>
     <!-- Dashboard Section End -->
-
+    <script>
+      function fun11()
+      {
+        document.getElementById('div1').style.display='block';
+      }
+      function fun12()
+      {
+        document.getElementById('div12').style.display='block';
+      }
+    </script>
    {% endblock %}

@@ -60,11 +60,7 @@
                                     </td>
                                     <td class="cart__price text-success">&#8377 <span id="prc">{{prod.prod_price}}</span></td>
                                     <td class="cart__quantity">
-                                        <div class="">
-                                            <button onclick="decrement({{prod.prod_price}})">-</button>
-                                            <input type="number" value="1" id="demoInput" min=1 max=10>
-                                            <button onclick="increment({{prod.prod_price}})">+</button>
-                                        </div>
+                                        
                                     </td>
                                     <td class="cart__total text-success">&#8377 <span id="tot">{{prod.prod_price}}</span>/-</td>
                                     <td class="cart__close"><a href="{% url 'remove_bag' prod.product_id %}"><span class="icon_close"></span></a></td>
@@ -82,9 +78,9 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="cart__btn update__btn">
-                        
-                    </div>
+                    
+                        <div class="btn btn-dark"><a>PROCEED TO CHECKOUT</a></div>
+                   
                 </div>
             </div>
             <div class="row">
@@ -93,17 +89,7 @@
                         
                     </div>
                 </div>
-                <div class="col-lg-4 offset-lg-2">
-                    <div class="cart__total__procced text-success">
-                        <h6>Cart total</h6>
-                        <ul>
-                            <li>Price <span>&#8377 999/-</span></li>
-                            <li>Delivery Charge <span>&#8377 999/-</span></li>
-                            <li>Total <span>&#8377 999/-</span></li>
-                        </ul>
-                        <a href="#" class="primary-btn">Proceed to checkout</a>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </section>
