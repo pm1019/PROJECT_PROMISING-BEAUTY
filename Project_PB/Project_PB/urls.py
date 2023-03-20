@@ -28,4 +28,5 @@ urlpatterns = [
     path('customization/',include('CUSTOMIZATION.urls')),
     path('wish/',include('WISHLIST.urls')),
     path('shop-bag/',include('ADD_TO_CART.urls')),
+    path('blogs/',include('HOME.urls'))
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

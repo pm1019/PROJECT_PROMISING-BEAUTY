@@ -184,72 +184,69 @@
     </div>
     <!-- Offcanvas Menu End -->
 
-    <!-- Header Section Begin -->
-    <header class="header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-3 col-lg-2">
-                    <div class="header__logo">
-                        <a href="./index.html"><h4>Promising Beauty</h4></a>
-                    </div>
-                </div>
-                <div class=" col-xl-6 col-lg-7">
-                    <nav class="header__menu">
-                        <ul class="header_ul">
-                            <li class="active"><a href="./index.html">Home</a></li>
-                            <li><a href="shop/product">Shop</a></li>
-                            <li><a href="#">WELCOME</a>
-                                <ul class="dropdown">
-                                    <li><a href="dash/dashboard">My Profile</a></li>
-                                    <li><a href="order/myorder">My Orders</a></li>
-                                    <li><a href="wish/wishlist">My Wishlist</a></li>
-                                    <li><a href="cart/Addtocart">My Bag</a></li>
-                                    <li><a href="auth/logout">Log Out</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="blogs/blog">Blog</a></li>
-                            <li><a href="contact">Contact</a></li>
-                            {% if user.is_authenticated %}
-                            <li>
-                               <b> Hello, {{user.first_name}} </b>
-                            </li>    
-                            <li>
-                                <a href="auth/logout">logout</a>
-                            </li>
-                            {% else %}
-                            <li>
-                                <a href="auth/login">Login/Registration</a>
-                            </li>
-                            {% endif %} 
-                        </ul>
-                        
-                    </nav>
-                </div>
-                <div class="col-lg-3">
-                    <div class="header__right">
-                       
-                        <ul class="header__right__widget" style="margin-left: -50px;">
-                            <li><span class="icon_search search-switch"></span></li>
-                            <li><a href="wish/wishlist"><span class="icon_heart_alt"></span>
-                                <div class="tip">2</div>
-                            </a></li>
-                            <li><a href="shop-cart/cart"><span class="icon_bag_alt"></span>
-                                <div class="tip">2</div>
-                            </a></li>
-                        </ul>
-                        <div class="header__right__auth" style="margin-left: 30px; margin-right:-10px">
-                            <a href="customization/custom"><button class="btn btn-dark" style="border-radius: 20px;">Customization</button></a>
-                        </div>
-                        
-                    </div>
+   <!-- Header Section Begin -->
+   <header class="header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-3 col-lg-2">
+                <div class="header__logo">
+                    <a href="./index.html"><h4>Promising Beauty</h4></a>
                 </div>
             </div>
-            <div class="canvas__open">
-                <i class="fa fa-bars"></i>
+            <div class=" col-xl-6 col-lg-7">
+                <nav class="header__menu">
+                    <ul class="header_ul">
+                        <li class="active"><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'shop' %}">Shop</a></li>
+                        <li><a href="#">WELCOME</a>
+                            <ul class="dropdown">
+                                <li><a href="{% url 'dash' %}">My Profile</a></li>
+                                <li><a href="{% url 'order' %}">My Orders</a></li>
+                                <li><a href="{% url 'show_wishlist' %}">My Wishlist</a></li>
+                                <li><a href="{% url 'show_bag' %}">My Bag</a></li>
+                                <li><a href="{% url 'logout' %}">Log Out</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{% url 'blog' %}">Blog</a></li>
+                        <li><a href="contact">Contact</a></li>
+                        {% if user.is_authenticated %}
+                        <li>
+                           <b> Hello, {{user.first_name}} </b>
+                        </li>    
+                        <li>
+                            <a href="{% url 'logout' %}">logout</a>
+                        </li>
+                        {% else %}
+                        <li>
+                            <a href="{% url 'login' %}">Login/Registration</a>
+                        </li>
+                        {% endif %} 
+                    </ul>
+                    
+                </nav>
+            </div>
+            <div class="col-lg-3">
+                <div class="header__right">
+                   
+                    <ul class="header__right__widget" style="margin-left: -50px;">
+                        
+                        <li><a href="{% url 'show_wishlist' %}"><span class="icon_heart_alt"></span>
+                        </a></li>
+                        <li><a href="{% url 'show_bag' %}"><span class="icon_bag_alt"></span>
+                        </a></li>
+                    </ul>
+                    <div class="header__right__auth" style="margin-left: 30px; margin-right:-10px">
+                        <a href="{% url 'custom' %}"><button class="btn btn-dark" style="border-radius: 20px;">Customization</button></a>
+                    </div>
+                    
+                </div>
             </div>
         </div>
-    </header>
-    <!-- Header Section End -->
+        <div class="canvas__open">
+            <i class="fa fa-bars"></i>
+        </div>
+    </div>
+</header>
 
 
 <section id="services" class="services section-bg">

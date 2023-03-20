@@ -1,18 +1,22 @@
 from django.shortcuts import render,redirect,reverse
-from .models import P_Details,Customer_details
+from .models import P_Details,Customer_details,Cat,SubCat
 from django.contrib.auth.models import User
 from ADD_TO_CART.models import addtobag
 from WISHLIST.models import Wishlist
 from django.http import HttpResponseRedirect
 
+
 # Create your views here.
 def product(request):
     Prods=P_Details.objects.all()
-    return render(request,'shop.html',{'Prods':Prods})
+    Data={
+        'Prods':Prods
+    }
+    return render(request,'shop.html',Data)
 
 def prod_detail(request,id):
     detail=P_Details.objects.get(product_id=id)
-    return render(request,'product-details.html',{'data':detail})
+    return render(request,'product-details.html',{'data':detail}) 
 
 def addToWishlist(request,id):
     prod=id
@@ -69,5 +73,36 @@ def search(request):
     if src=='':
         return redirect('shop')
     else:
-        data=P_Details.objects.filter(p_name=src)
+        data=P_Details.objects.filter(p_name__icontains=src)
         return render(request,'shop.html',{'data':data})
+
+def categories(request):
+    src=request.GET['type']
+    Prods=P_Details.objects.filter(p_fabric=src)
+    Data={
+        'Prods':Prods
+    }
+    return render(request,'shop.html',Data)
+
+    
+def low_to_high(request):
+    cats=Cat.objects.all()
+    subcats=SubCat.objects.all()
+    lowToHigh=P_Details.objects.all().order_by('p_price')
+    Data={
+        'Prods':lowToHigh,
+        'cats':cats,
+        'subcats':subcats
+    }
+    return render(request,'shop.html',Data)
+
+def high_to_low(request):
+    cats=Cat.objects.all()
+    subcats=SubCat.objects.all()
+    lowToHigh=P_Details.objects.all().order_by('-p_price')
+    Data={
+        'Prods':lowToHigh,
+        'cats':cats,
+        'subcats':subcats
+    }
+    return render(request,'shop.html',Data)        
