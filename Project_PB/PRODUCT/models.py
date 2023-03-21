@@ -30,6 +30,55 @@ class P_Details(models.Model):
     p_color=models.CharField(max_length=50)
     p_filter=models.CharField(max_length=20,default=0)
 
+class Accessories(models.Model):
+    Acs_id=models.IntegerField(primary_key=True)
+    Acs_type=(
+        ('Neckpiece','Neckpiece'),
+        ('Rings','Rings'),
+        ('Bangles','Bangles'),
+        ('Earings','Earings')
+    )
+    Acs_price=models.IntegerField()
+    Acs_type=models.CharField(max_length=30,default="Neckpiece",choices=Acs_type)
+
+class Cosmetics(models.Model):
+    Csmtc_id=models.IntegerField(primary_key=True)
+    Csmtc_type=(
+        ('Foundation','Foundation'),
+        ('Concealer','Concealer'),
+        ('Primer','Primer'),
+        ('Lipstick','Lipstick'),
+        ('Compact','Compact')
+    )
+    Csmtc_price=models.IntegerField()
+    Csmtc_brand=models.CharField(max_length=20)
+    Csmtc_type=models.CharField(max_length=30,default="Foundation",choices=Csmtc_type)
+
+class bag(models.Model):
+    bag_id=models.IntegerField(primary_key=True)
+    bag_name=models.CharField(max_length=25)
+    bag_color=models.CharField(max_length=20)
+    bag_brand=models.CharField(max_length=20)
+    bag_type=(
+        ('Wallet','Wallet'),
+        ('Clutches','Clutches'),
+        ('Waistbag','Waistbag')
+    )
+    bag_type=models.CharField(max_length=30,default="Clutches",choices=bag_type)
+
+class footwear(models.Model):
+    footWear_id=models.IntegerField(primary_key=True)
+    footWear_name=models.CharField(max_length=20)
+    footWear_color=models.CharField(max_length=20)
+    footWear_type=(
+        ('Slipper','Slipper'),
+        ('Heal','Heals'),
+        ('Sandals','Sandals')
+    )
+    footWear_brand=models.CharField(max_length=20)
+    footwear_type=models.CharField(max_length=30,default="Slipper",choices=footWear_type)
+
+
 class Add_to_cart(models.Model):
     cart_id=models.IntegerField(primary_key=True)
     cust_id=models.ForeignKey('DASHBOARD.Customer_details',default=0,on_delete=models.SET_DEFAULT )
