@@ -45,3 +45,27 @@ def register(request):
 def logout(request):
         auth.logout(request)
         return redirect('/')
+
+#forgot password
+def forgot_password(request):
+    if request.method == 'POST':
+        username=request.POST['username']
+        if User.objects.filter(username=username).exists():
+            return render(request, 'forgot_pass1.html',{'uname':username})
+        else:
+            return render(request, 'forgot_password.html')
+    else:
+        return render(request, 'forgot_password.html')
+    
+#logic of forgot password
+def set_pass(request):
+    npass=request.POST['newpass']
+    cpass=request.POST['cpass']
+    username=request.POST['username']
+    if npass==cpass:
+        u = User.objects.get(username=username)
+        u.set_password(npass)
+        u.save()
+        return redirect('Login')
+    else:
+        return render(request, 'forgot_pass1.html')
