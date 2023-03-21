@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.admin.sites import site
-from PRODUCT.models import Cat,SubCat,P_Details,Offer
+from PRODUCT.models import Cat,SubCat,P_Details,Offer,bag,footwear,Cosmetics,Accessories
 import csv
 from django.http import HttpResponse
 
@@ -24,3 +24,7 @@ admin.site.register(Cat)
 admin.site.register(SubCat)
 admin.site.register(P_Details,BookAdmin)
 admin.site.register(Offer)
+admin.site.register(bag)
+admin.site.register(footwear)
+admin.site.register(Cosmetics)
+admin.site.register(Accessories)    
