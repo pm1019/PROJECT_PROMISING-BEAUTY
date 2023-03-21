@@ -66,6 +66,6 @@ def set_pass(request):
         u = User.objects.get(username=username)
         u.set_password(npass)
         u.save()
-        return redirect('Login')
+        return redirect('login')
     else:
         return render(request, 'forgot_pass1.html')
