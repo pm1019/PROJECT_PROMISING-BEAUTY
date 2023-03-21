@@ -1,10 +1,6 @@
 from django.db import models
 from DASHBOARD.models import Customer_details
 
-
-
-
-
 # Create your models here.
 class Cat(models.Model):
     cat_id=models.IntegerField(primary_key=True)
