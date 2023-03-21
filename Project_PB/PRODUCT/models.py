@@ -42,4 +42,7 @@ class Offer(models.Model):
     offer_name=models.TextField(max_length=30)
     offer_desc=models.TextField(max_length=150)
     offer_start_date=models.DateField()
-    offer_end_date=models.DateField()    
+    offer_end_date=models.DateField()   
+ 
+
+
