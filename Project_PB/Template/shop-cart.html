@@ -39,8 +39,8 @@
                                     <th>Product</th>
                                     <th>Details</th>
                                     <th>Price</th>
-                                    <th>Status</th>
-                                    <th></th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -60,7 +60,11 @@
                                     </td>
                                     <td class="cart__price text-success">&#8377 <span id="prc">{{prod.prod_price}}</span></td>
                                     <td class="cart__quantity">
-                                        
+                                        <div class="">
+                                            <input type="button" class="btn btn-dark" onclick="decrementValue()" value="-" />
+                                            <input type="text" name="quantity" value="1" maxlength="2" max="10" size="1" id="number" />
+                                            <input type="button" class="btn btn-dark" onclick="incrementValue()" value="+" />
+                                        </div>
                                     </td>
                                     <td class="cart__total text-success">&#8377 <span id="tot">{{prod.prod_price}}</span>/-</td>
                                     <td class="cart__close"><a href="{% url 'remove_bag' prod.product_id %}"><span class="icon_close"></span></a></td>
@@ -74,13 +78,22 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="cart__btn">
-                        <a href="#">Continue Shopping</a>
+                        <a href="{% url 'shop' %}">Continue Shopping</a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
-                    
-                        <div class="btn btn-dark"><a>PROCEED TO CHECKOUT</a></div>
-                   
+                    {% if user.is_authenticated %}
+                        <div class="btn btn-dark"><a href="{% url 'proceed_checkout' %}" class="text-light">PROCEED TO CHECKOUT</a></div> 
+                    {% else %}
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong class="fs-2">Oops!</strong><span class="text-danger fs-4"> First, Login for using our Services..!!</span><br><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="btn btn-dark btn-lg"><a href="{% url 'login' %}" class="text-light">Login/Registration</a></div>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                      </div>
+                    {% endif %}
                 </div>
             </div>
             <div class="row">
@@ -95,19 +108,29 @@
     </section>
     <!-- Shop Cart Section End -->
     <script>
-        function increment(prc) {
-           document.getElementById('demoInput').stepUp();
-           var price=prc;
-           var qty=document.getElementById('demoInput').value;
-           var tot = document.getElementById('tot').innerHTML=price*qty;
-           //tot.value="total";
+        function incrementValue(prc)
+        {
+            var price=prc;
+            var value = parseInt(document.getElementById('number').value, 10);
+            value = isNaN(value) ? 0 : value;
+            if(value<10){
+                value++;
+                document.getElementById('number').value = value;
+            }
+            var tot = document.getElementById('tot').innerHTML=price*value;
         }
-        function decrement(prc) {
-           document.getElementById('demoInput').stepDown();
-           var price=prc;
-           var qty=document.getElementById('demoInput').value;
-           var tot = document.getElementById('tot').innerHTML=price*qty;
+        function decrementValue(prc)
+        {
+            var price=prc;
+            var value = parseInt(document.getElementById('number').value, 10);
+            value = isNaN(value) ? 0 : value;
+            if(value>1){
+                value--;
+                document.getElementById('number').value = value;
+            }
+            var tot = document.getElementById('tot').innerHTML=price*value;
         }
+
     </script>
 
     {% endblock %}

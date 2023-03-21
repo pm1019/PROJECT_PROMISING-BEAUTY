@@ -51,7 +51,7 @@ def forgot_password(request):
     if request.method == 'POST':
         username=request.POST['username']
         if User.objects.filter(username=username).exists():
-            return render(request, 'forgot_password1.html',{'uname':username})
+            return render(request, 'forgot_pass1.html',{'uname':username})
         else:
             return render(request, 'forgot_password.html')
     else:
@@ -68,4 +68,4 @@ def set_pass(request):
         u.save()
         return redirect('login')
     else:
-        return render(request, 'forgot_password1.html')
+        return render(request, 'forgot_pass1.html')

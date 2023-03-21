@@ -13,18 +13,18 @@
     <!-- ===== CSS ===== -->
     <link rel="stylesheet" href="{% static 'css/style1.css' %}">
          
-    <title>Customer Register Login</title>
+    <title>Set_New_Password</title>
 </head>
 <body>
     <div class="container" style="margin-left: 100px;">
         <div class="forms">
             <div class="form login">
-                <span class="title">Login</span>
+                <span class="title">Set Password</span>
 
-                <form action="set_pass" method="post">
+                <form action="set_pass" method="POST">
                     {% csrf_token %}
                     <div class="input-field">
-                        <input type="text" placeholder="New Password" name="newpass" required>
+                        <input type="password" placeholder="New Password" name="newpass" required>
                         <i class="uil uil-lock icon"></i>
                         <i class="uil uil-eye-slash showHidePw"></i>
                     </div>
@@ -34,9 +34,15 @@
                         <i class="uil uil-eye-slash showHidePw"></i>
                     </div>
                     <input type="hidden" value="{{uname}}" name="username">
+                    <div class="checkbox-text">
+                        <div class="checkbox-content">
+                            
+                        </div>
+                        
+                    </div>
                     
                     <div class="input-field button">
-                        <input type="submit" value="Save" >
+                        <input type="submit" value="Save">
                     </div>
                 </form>
             </div>
