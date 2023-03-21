@@ -183,8 +183,89 @@
                             </div>
                         </div>
                         {% endfor %}
-                        
+
+                        {% for footwear in FootWears %}
+                        <div class="col-lg-3 col-md-4 col-sm-6 mix women">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="{{footwear.footWear_img.url}}">
+                                    <ul class="product__hover">
+                                        <li><a href="{{footwear.footWear_img.url}}" class="image-popup"><span class="arrow_expand"></span></a></li>
+                                        <li><a href="{% url 'add-to-wishlist' footwear.footWear_id %}"><span class="icon_heart_alt"></span></a></li>
+                                        <li><a href="{% url 'add-to-bag' footwear.footWear_id %}"><span class="icon_bag_alt"></span></a></li>
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                    <h5><a target="_blank" href="{% url 'product-detail' footwear.footWear_id %}">{{Bag.purse_name}}</a></h5>
+                                    <h6><a href="">{{footwear.footWear_brand}}</a></h6>
+                                    <h6><a href="">{{footwear.footwear_type}}</a></h6>
+                                    <div class="rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product__price text-success">&#8377  {{footwear.footwear_price}}</div>
+                                </div>
+                            </div>
                         </div>
+                        {% endfor %}
+
+                        {% for cosmetic in cosmetics %}
+                        <div class="col-lg-3 col-md-4 col-sm-6 mix women">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="{{cosmetic.Csmtc_img.url}}">
+                                    <ul class="product__hover">
+                                        <li><a href="{{cosmetic.Csmtc_img.url}}" class="image-popup"><span class="arrow_expand"></span></a></li>
+                                        <li><a href="{% url 'add-to-wishlist' cosmetic.Csmtc_id %}"><span class="icon_heart_alt"></span></a></li>
+                                        <li><a href="{% url 'add-to-bag' cosmetic.Csmtc_id %}"><span class="icon_bag_alt"></span></a></li>
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                    <h5><a target="_blank" href="{% url 'product-detail' cosmetic.Csmtc_id %}">{{cosmetic.Csmtc_name}}</a></h5>
+                                    <h6><a href="">{{cosmetic.Csmtc_brand}}</a></h6>
+                                    <h6><a href="">{{cosmetic.Csmtc_type}}</a></h6>
+                                    <div class="rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product__price text-success">&#8377  {{cosmetic.Csmtc_price}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                        {% for accessorie in accessories %}
+                        <div class="col-lg-3 col-md-4 col-sm-6 mix women">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="{{accessorie.Acs_img.url}}">
+                                    <ul class="product__hover">
+                                        <li><a href="{{accessorie.Acs_img.url}}" class="image-popup"><span class="arrow_expand"></span></a></li>
+                                        <li><a href="{% url 'add-to-wishlist' accessorie.Acs_id %}"><span class="icon_heart_alt"></span></a></li>
+                                        <li><a href="{% url 'add-to-bag' accessorie.Acs_id %}"><span class="icon_bag_alt"></span></a></li>
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                    <h5><a target="_blank" href="{% url 'product-detail' accessorie.Acs_id %}">{{accessorie.Acs_name}}</a></h5>
+                                    <h6><a href="">{{accessorie.Acs_brand}}</a></h6>
+                                    <h6><a href="">{{accessorie.Acs_type}}</a></h6>
+                                    <div class="rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product__price text-success">&#8377  {{accessorie.Acs_price}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        
+                    </div>
                        
                         
                          <div class="col-lg-12 text-center">
