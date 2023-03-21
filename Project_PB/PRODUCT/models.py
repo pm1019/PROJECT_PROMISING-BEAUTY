@@ -32,6 +32,10 @@ class P_Details(models.Model):
 
 class Accessories(models.Model):
     Acs_id=models.IntegerField(primary_key=True)
+    Acs_img=models.ImageField(upload_to='Products',null=True)
+    Acs_img1=models.ImageField(upload_to='Products',null=True)
+    Acs_img2=models.ImageField(upload_to='Products',null=True)
+    Acs_img3=models.ImageField(upload_to='Products',null=True)
     Acs_type=(
         ('Neckpiece','Neckpiece'),
         ('Rings','Rings'),
@@ -43,6 +47,10 @@ class Accessories(models.Model):
 
 class Cosmetics(models.Model):
     Csmtc_id=models.IntegerField(primary_key=True)
+    Csmtc_img=models.ImageField(upload_to='Products',null=True)
+    Csmtc_img1=models.ImageField(upload_to='Products',null=True)
+    Csmtc_img2=models.ImageField(upload_to='Products',null=True)
+    Csmtc_img3=models.ImageField(upload_to='Products',null=True)
     Csmtc_type=(
         ('Foundation','Foundation'),
         ('Concealer','Concealer'),
@@ -55,19 +63,27 @@ class Cosmetics(models.Model):
     Csmtc_type=models.CharField(max_length=30,default="Foundation",choices=Csmtc_type)
 
 class bag(models.Model):
-    bag_id=models.IntegerField(primary_key=True)
-    bag_name=models.CharField(max_length=25)
-    bag_color=models.CharField(max_length=20)
-    bag_brand=models.CharField(max_length=20)
-    bag_type=(
+    purse_id=models.IntegerField(primary_key=True)
+    purse_name=models.CharField(max_length=25)
+    purse_img=models.ImageField(upload_to='Products',null=True)
+    purse_img1=models.ImageField(upload_to='Products',null=True)
+    purse_img2=models.ImageField(upload_to='Products',null=True)
+    purse_img3=models.ImageField(upload_to='Products',null=True)
+    purse_color=models.CharField(max_length=20)
+    purse_brand=models.CharField(max_length=20)
+    purse_type=(
         ('Wallet','Wallet'),
         ('Clutches','Clutches'),
         ('Waistbag','Waistbag')
     )
-    bag_type=models.CharField(max_length=30,default="Clutches",choices=bag_type)
+    purse_type=models.CharField(max_length=30,default="Clutches",choices=purse_type)
 
 class footwear(models.Model):
     footWear_id=models.IntegerField(primary_key=True)
+    footWear_img=models.ImageField(upload_to='Products',null=True)
+    footWear_img1=models.ImageField(upload_to='Products',null=True)
+    footWear_img2=models.ImageField(upload_to='Products',null=True)
+    footWear_img3=models.ImageField(upload_to='Products',null=True)
     footWear_name=models.CharField(max_length=20)
     footWear_color=models.CharField(max_length=20)
     footWear_type=(
@@ -91,7 +107,4 @@ class Offer(models.Model):
     offer_name=models.TextField(max_length=30)
     offer_desc=models.TextField(max_length=150)
     offer_start_date=models.DateField()
-    offer_end_date=models.DateField()   
- 
-
-
+    offer_end_date=models.DateField()    

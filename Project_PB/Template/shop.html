@@ -156,6 +156,34 @@
                             </div>
                         </div>
                         {% endfor %}
+
+                        {% for Bag in Bags %}
+                        <div class="col-lg-3 col-md-4 col-sm-6 mix women">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="{{Bag.purse_img.url}}">
+                                    <ul class="product__hover">
+                                        <li><a href="{{Bag.purse_img.url}}" class="image-popup"><span class="arrow_expand"></span></a></li>
+                                        <li><a href="{% url 'add-to-wishlist' Bag.purse_id %}"><span class="icon_heart_alt"></span></a></li>
+                                        <li><a href="{% url 'add-to-bag' Bag.purse_id %}"><span class="icon_bag_alt"></span></a></li>
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                    <h5><a target="_blank" href="{% url 'product-detail' Bag.purse_id %}">{{Bag.purse_name}}</a></h5>
+                                    <h6><a href="">{{Bag.purse_Brand}}</a></h6>
+                                    <h6><a href="">{{Bag.purse_type}}</a></h6>
+                                    <div class="rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product__price text-success">&#8377  {{Bag.purse_price}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        
                         </div>
                        
                         

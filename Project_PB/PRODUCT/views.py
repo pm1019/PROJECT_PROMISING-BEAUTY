@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect,reverse
-from .models import P_Details,Customer_details,Cat,SubCat
+from .models import P_Details,Customer_details,Cat,SubCat,bag
 from django.contrib.auth.models import User
 from ADD_TO_CART.models import addtobag
 from WISHLIST.models import Wishlist
@@ -13,6 +13,11 @@ def product(request):
         'Prods':Prods
     }
     return render(request,'shop.html',Data)
+
+def bags(request):
+    Bags=bag.objects.all()
+    return render(request,'shop.html',{'Bags': Bags})
+
 
 def prod_detail(request,id):
     detail=P_Details.objects.get(product_id=id)
