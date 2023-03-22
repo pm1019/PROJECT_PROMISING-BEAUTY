@@ -86,8 +86,13 @@
                                     <div class="label new">{{item.p_label}}</div>
                                     <ul class="product__hover">
                                         <li><a href="{{item.p_img.url}}" class="image-popup"><span class="arrow_expand"></span></a></li>
+                                        {% if user.is_authenticated %}
                                         <li><a href="add-to-wishlist/{{item.product_id}}"><span class="icon_heart_alt"></span></a></li>
                                         <li><a href="add-to-bag/{{item.product_id}}"><span class="icon_bag_alt"></span></a></li>
+                                        {% else %}
+                                        <li><a href="{% url 'wish_icon_error' %}"><span class="icon_heart_alt"></span></a></li>
+                                        <li><a href="{% url 'bag_icon_error' %}"><span class="icon_bag_alt"></span></a></li>
+                                        {% endif %}
                                     </ul>
                                 </div>
                                 <div class="product__item__text">

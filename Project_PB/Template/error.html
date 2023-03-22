@@ -1,0 +1,14 @@
+{% extends 'BAsee.html' %}
+
+{% block content %}
+
+{% load static %}
+<br><br><br><br><br><br>
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <div class="justify-content-center text-center">
+        <strong class="fs-2">Sorry!</strong><br><span class="text-danger fs-4">{{msg}}</span><br><br>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</div>
+<br><br><br><br><br><br>
+{% endblock %}

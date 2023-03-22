@@ -101,11 +101,19 @@
                             <li><a href="{% url 'shop' %}">Shop</a></li>
                             <li><a href="#">WELCOME</a>
                                 <ul class="dropdown">
+                                    {% if user.is_authenticated %}
                                     <li><a href="{% url 'dash' %}">My Profile</a></li>
                                     <li><a href="{% url 'order' %}">My Orders</a></li>
                                     <li><a href="{% url 'show_wishlist' %}">My Wishlist</a></li>
                                     <li><a href="{% url 'show_bag' %}">My Bag</a></li>
                                     <li><a href="{% url 'logout' %}">Log Out</a></li>
+                                    {% else %}
+                                    <li><a href="{% url 'profile_error' %}">My Profile</a></li>
+                                    <li><a href="{% url 'order_error' %}">My Orders</a></li>
+                                    <li><a href="{% url 'wish_error' %}">My Wishlist</a></li>
+                                    <li><a href="{% url 'bag_error' %}">My Bag</a></li>
+                                    <li><a href="{% url 'logout' %}">Log Out</a></li>
+                                    {% endif %}
                                 </ul>
                             </li>
                             <li><a href="{% url 'blog' %}">Blog</a></li>
@@ -130,11 +138,17 @@
                     <div class="header__right">
                        
                         <ul class="header__right__widget" style="margin-left: -50px;">
-                            
+                            {% if user.is_authenticated %}
                             <li><a href="{% url 'show_wishlist' %}"><span class="icon_heart_alt"></span>
                             </a></li>
                             <li><a href="{% url 'show_bag' %}"><span class="icon_bag_alt"></span>
                             </a></li>
+                            {% else %}
+                            <li><a href="{% url 'wish_error' %}"><span class="icon_heart_alt"></span>
+                            </a></li>
+                            <li><a href="{% url 'bag_error' %}"><span class="icon_bag_alt"></span>
+                            </a></li>
+                            {% endif %}
                         </ul>
                         <div class="header__right__auth" style="margin-left: 30px; margin-right:-10px">
                             <a href="{% url 'custom' %}"><button class="btn btn-dark" style="border-radius: 20px;">Customization</button></a>
