@@ -2,25 +2,40 @@
 <!DOCTYPE html>
 <!-- === Coding by CodingLab | www.codinglabweb.com === -->
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- ===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
     <!-- ===== CSS ===== -->
     <link rel="stylesheet" href="{% static 'css/style1.css' %}">
-         
+
     <title>Customer Register Login</title>
 </head>
+
 <body>
+    <div class="alert alert-warning" role="alert" id="messg">
+        <h4>{{msg}}</h4>
+    </div>
     <div class="container" style="margin-left: 100px;">
         <div class="forms">
             <div class="form login">
                 <span class="title">Login</span>
-
                 <form action="login" method="POST">
                     {% csrf_token %}
                     <div class="input-field">
@@ -28,17 +43,21 @@
                         <i class="uil uil-user icon"></i>
                     </div>
                     <div class="input-field">
-                        <input type="password" class="password" placeholder="Enter your password" name="password" required>
+                        <input type="password" class="password" placeholder="Enter your password" name="password"
+                            required>
                         <i class="uil uil-lock icon"></i>
                         <i class="uil uil-eye-slash showHidePw"></i>
                     </div>
-
                     <div class="checkbox-text">
+                        <div class="checkbox-content">
+
+                        </div>
+
                         <a href="{% url 'forgot_password' %}" class="text">Forgot password?</a>
                     </div>
-                    
+
                     <div class="input-field button">
-                        <a href="index.html"><input type="submit" value="Login Now" ></a>
+                        <a href="index.html"><input type="submit" value="Login Now"></a>
                     </div>
                 </form>
                 <div class="login-signup">
@@ -47,11 +66,14 @@
                     </span>
                 </div>
             </div>
-            
+
             <!-- Registration Form -->
+
             <div class="form signup">
                 <span class="title">Registration</span>
+                <div>
 
+                </div>
                 <form method="POST" action="register">
                     {% csrf_token %}
                     <div class="input-field">
@@ -63,7 +85,7 @@
                         <i class="uil uil-user"></i>
                     </div>
                     <div class="input-field">
-                        <input type="text" placeholder="Enter your  last name"  name="last_name" required>
+                        <input type="text" placeholder="Enter your  last name" name="last_name" required>
                         <i class="uil uil-user"></i>
                     </div>
                     <div class="input-field">
@@ -71,18 +93,20 @@
                         <i class="uil uil-envelope icon"></i>
                     </div>
                     <div class="input-field">
-                        <input type="password" class="password" placeholder="Create a password" name="password1" required>
+                        <input type="password" class="password" placeholder="Create a password" name="password1"
+                            required>
                         <i class="uil uil-lock icon"></i>
                     </div>
                     <div class="input-field">
-                        <input type="password" class="password" placeholder="Confirm a password" name="password2" required>
+                        <input type="password" class="password" placeholder="Confirm a password" name="password2"
+                            required>
                         <i class="uil uil-lock icon"></i>
                         <i class="uil uil-eye-slash showHidePw"></i>
                     </div>
 
                     <div class="checkbox-text">
                         <div class="checkbox-content">
-                           
+
                         </div>
                     </div>
 
@@ -90,12 +114,10 @@
                         <input type="submit" value="Register">
                     </div>
                 </form>
-                    <div id="messg">
-                        <h4>{{message}}</h4>
-                    </div>
+
                 <div class="login-signup">
                     <span class="text">Already have an account?
-                        <a href="#" class="text login-link">Login</a>
+                        <a href="{% url 'login' %}" class="text login-link">Login</a>
                     </span>
                 </div>
             </div>
@@ -106,4 +128,5 @@
     </div>
     <script src="{% static 'js/script1.js' %}"></script>
 </body>
+
 </html>
