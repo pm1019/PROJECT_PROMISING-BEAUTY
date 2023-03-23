@@ -13,6 +13,5 @@ urlpatterns = [
     path('search',views.search,name="search"),
     path('low_to_high',views.low_to_high,name='low_to_high'),
     path('high_to_low',views.high_to_low,name='high_to_low'),
-    path('categories',views.categories,name="categories"),
-    path('bags',views.bags,name="bags")
+    path('subcats',views.subcats,name="subcats")
 ]

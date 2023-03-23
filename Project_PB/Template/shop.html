@@ -13,70 +13,37 @@
     <nav class="navbar navbar-expand-lg navbar-light " style="background-color: white;"> 
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav" style="margin-left: 390px;">
+            
+            {% for cat in Cats %}
             <li class="nav-item dropdown">
-                <a class="nav-link text-dark" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Kurti
+                <a class="nav-link text-dark" href="?Cat={{cat.cat_id}}">
+                    {{cat.cat_name}}
                 </a>
-                <div class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
-                <form action="categories" method="GET">
-                    <input type="hidden" name="type" value="Cotton">
-                    <button type="submit" class="border-0 dropdown-item" ><a class="dropdown-item">Cotton</a></button> 
-                </form>
-                <a class="dropdown-item" href="#">Gamthi</a>
-                <a class="dropdown-item" href="#">Southcotton</a>
-                <a class="dropdown-item" href="#">Silk</a>
-                <a class="dropdown-item" href="#">Capsule</a>
-                </div>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link text-dark" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Kurti Set
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Jaipuri</a>
-                <a class="dropdown-item" href="#">Cotton</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link text-dark" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Tunics
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Cotton</a>
-                <a class="dropdown-item" href="#">Gamthi</a>
-                <a class="dropdown-item" href="#">South Cotton</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link text-dark" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Pants
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Cotton</a>
-                <a class="dropdown-item" href="#">Southcotton</a>
-                <a class="dropdown-item" href="#">Silk</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link text-dark" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Duppata's
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Southcotton</a>
-                <a class="dropdown-item" href="#">Silk</a>
-                </div>
-            </li>
+            {% endfor %}
             </ul>
             <a href="{% url 'low_to_high' %}"><button class="btn btn-dark" style="margin-left: 80px;">Low to High</button></a>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="{% url 'high_to_low' %}"><button class="btn btn-dark">High to Low</button></a>
         </div>
     </nav>
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: white;"> 
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav" style="margin-left: 100px;">
+            
+            {% for subcats in subcat %}
+            <li class="nav-item dropdown">
+                <a class="nav-link text-dark" href="{% url 'subcats' %}?SubCat={{subcats.subcat_id}}">
+                    {{subcats.subcat_name}}
+                </a>
+            </li>
+            {% endfor %}
+        </div>
+    </nav>
     <!-- Shop Section Begin -->
     <section class="shop spad">
         <div class="container">
             <div class="row">
-                
                 <div class="col-lg-12 col-md-9">
                     <div class="row">
                         {% for item in products %}
@@ -161,7 +128,6 @@
                             </div>
                         </div>
                         {% endfor %}
-
                         {% for Bag in Bags %}
                         <div class="col-lg-3 col-md-4 col-sm-6 mix women">
                             <div class="product__item">
@@ -276,7 +242,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+       
     </section>
     <!-- Shop Section End -->
 

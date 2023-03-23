@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'Project_PB.wsgi.application'
 DATABASES = {
      'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'PROMSING_BEAUTY',
+        'NAME':'PROMSING_BEAUTY_FINAL',
         'USER':'postgres',
         'PASSWORD':'192407',
         'HOST':'localhost',

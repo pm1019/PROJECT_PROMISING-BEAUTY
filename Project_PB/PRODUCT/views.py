@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect,reverse
-from .models import P_Details,Customer_details,Cat,SubCat,bag
+from .models import P_Details,Customer_details,Cat,SubCat
 from django.contrib.auth.models import User
 from ADD_TO_CART.models import addtobag
 from WISHLIST.models import Wishlist
@@ -9,15 +9,49 @@ from django.http import HttpResponseRedirect
 # Create your views here.
 def product(request):
     Prods=P_Details.objects.all()
-    Data={
-        'Prods':Prods
-    }
-    return render(request,'shop.html',Data)
+    Cats=Cat.objects.all()
+    c_id=request.GET.get('Cat')
+    if c_id:
+            subcat=SubCat.objects.filter(cat_id=c_id)
+            Prods=P_Details.objects.all()
+            if subcat is not None:
+                Data={
+                'Prods':Prods,
+                'Cats' :Cats,
+                'subcat':subcat
+                }
+                return render(request,'shop.html' ,Data)
+            else:
+                Data={
+                    'Prods':Prods,
+                    'Cats' :Cats
+                    }
+                return render(request,'shop.html' ,Data)
+    else:
+        Prods=P_Details.objects.all()
+        Data={
+            'Prods':Prods,
+            'Cats' :Cats
+        }
+        return render(request,'shop.html' ,Data)
+    
+def subcats(request):
+    Prods=P_Details.objects.all()
+    s_id=request.GET.get('SubCat')
+    if s_id:
+            Prods=P_Details.objects.filter(subcat_id=s_id)
+            Data={
+                'Prods':Prods
+                }
+            return render(request,'shop.html' ,Data)
+    else:
+        Prods=P_Details.objects.all()
+        Data={
+            'Prods':Prods
+        }
 
-def bags(request):
-    Bags=bag.objects.all()
-    return render(request,'shop.html',{'Bags': Bags})
 
+    return render(request,'shop.html',Data)    
 
 def prod_detail(request,id):
     detail=P_Details.objects.get(product_id=id)
@@ -81,13 +115,7 @@ def search(request):
         data=P_Details.objects.filter(p_name__icontains=src)
         return render(request,'shop.html',{'data':data})
 
-def categories(request):
-    src=request.GET['type']
-    Prods=P_Details.objects.filter(p_fabric=src)
-    Data={
-        'Prods':Prods
-    }
-    return render(request,'shop.html',Data)
+
 
     
 def low_to_high(request):
