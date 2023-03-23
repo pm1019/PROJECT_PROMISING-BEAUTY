@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from PRODUCT.models import P_Details
 
 # Create your views here.
@@ -7,6 +7,39 @@ def custom(request):
 
 def hoops(request):
     return render(request,'hoop.html')
+
+def mm(request):
+    if request.method == 'POST':
+        custom_colour=request.POST['color']
+        Prods=P_Details.objects.filter(p_color=custom_colour)
+        return render(request,'matchmaking.html',{'Prods':Prods})
+
+    else:
+        return render(request,'matchmaking.html') 
+
+def mm_final(request):
+    p_id=request.GET.get('PRD_ID')
+    if p_id:
+        Prods=P_Details.objects.filter(p_type='Kurti Set',p_color='Pink')
+        Foots=P_Details.objects.filter(p_color='black', p_type='Footwear') 
+        Data={
+            'Foots': Foots,
+            'Prods':Prods
+        }
+        return render(request,'matchmakingfinal.html' ,Data)
+    else:
+     return render(request,'matchmaking2.html',{'Prods':Prods}) 
+
+def mm_kurti(request):
+    Prods=P_Details.objects.filter(p_type='Kurti Set')
+    return render(request,'matchmaking2.html',{'Prods':Prods}) 
+
+def mm_dress(request):
+    return render(request,'matchmaking2.html')
+
+def mm_lehenga(request):
+    Prods=P_Details.objects.filter(p_type='Lehenga')
+    return render(request,'matchmaking2.html',{'Prods':Prods}) 
 
 def bestperson(request):
     return render(request,'bestperson.html')
@@ -58,6 +91,7 @@ def pearshape(request):
 
     else:
         return render(request,'pear_shape_customization_form.html')    
+
 
 
 def invertedshape(request):
