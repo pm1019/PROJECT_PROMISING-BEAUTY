@@ -3,6 +3,43 @@
     {% block content %}
 
     {% load static %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.increment-btn').click(function(e){
+                e.preventDefault();
+                var inc_val = $(this).closest('.product_data').find('.qty-input').val();
+                var value = parseInt(inc_val,10);
+                value = isNaN(value) ? 0 : value;
+                if(value < 10){
+                    value++;
+                    $(this).closest('.product_data').find('.qty-input').val(value);
+                    var price= $(this).closest('.product_data').find('.prc').data("name");
+                    var qty=$(this).closest('.product_data').find('.qty-input').val();
+                    var tot=price*qty;
+                    $(this).closest('.product_data').find('.total').val(tot);
+                }
+            });
+
+            $('.decrement-btn').click(function(e){
+                e.preventDefault();
+
+                var inc_val = $(this).closest('.product_data').find('.qty-input').val();
+                var value = parseInt(inc_val,10);
+                value = isNaN(value) ? 0 : value;
+                if(value > 1){
+                    value--;
+                    $(this).closest('.product_data').find('.qty-input').val(value);
+                    var price= $(this).closest('.product_data').find('.prc').data("name");
+                    var qty=$(this).closest('.product_data').find('.qty-input').val();
+                    var tot=price*qty;
+                    $(this).closest('.product_data').find('.total').val(tot);
+
+                }
+            });
+        });
+    </script>
+    
     <style>
         /* Chrome, Safari, Edge, Opera */
         input::-webkit-outer-spin-button,
@@ -45,7 +82,7 @@
                             </thead>
                             <tbody>
                                 {% for prod in bag_data %}
-                                <tr>
+                                <tr class="product_data">
                                     <td class="cart__product__item" style="width:400px;">
                                         <img src="{{prod.prod_img.url}}" alt="" style="height: 400px; width:300px;">
                                     </td>
@@ -58,15 +95,16 @@
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                     </td>
-                                    <td class="cart__price text-success">&#8377 <span id="prc">{{prod.prod_price}}</span></td>
+                                    <td class="cart__price text-success">&#8377 <span class="prc" data-name="{{prod.prod_price}}">{{prod.prod_price}}</span></td>
                                     <td class="cart__quantity">
                                         <div class="">
-                                            <input type="button" class="btn btn-dark" onclick="decrementValue()" value="-" />
-                                            <input type="text" name="quantity" value="1" maxlength="2" max="10" size="1" id="number" />
-                                            <input type="button" class="btn btn-dark" onclick="incrementValue()" value="+" />
+                                            {% csrf_token %}
+                                            <button class="btn btn-dark decrement-btn">-</button>
+                                            <input type="text" name="quantity" value="1" size="1" class="qty-input"/>
+                                            <button class="btn btn-dark increment-btn" id="">+</button>
                                         </div>
                                     </td>
-                                    <td class="cart__total text-success">&#8377 <span id="tot">{{prod.prod_price}}</span>/-</td>
+                                    <td class="cart__total text-success">&#8377 <input class="total border-0" size="3" value="{{prod.prod_price}}" type="text"/></td>
                                     <td class="cart__close"><a href="{% url 'remove_bag' prod.product_id %}"><span class="icon_close"></span></a></td>
                                 </tr>
                                 {% endfor %}
@@ -107,31 +145,6 @@
         </div>
     </section>
     <!-- Shop Cart Section End -->
-    <script>
-        function incrementValue(prc)
-        {
-            var price=prc;
-            var value = parseInt(document.getElementById('number').value, 10);
-            value = isNaN(value) ? 0 : value;
-            if(value<10){
-                value++;
-                document.getElementById('number').value = value;
-            }
-            var tot = document.getElementById('tot').innerHTML=price*value;
-        }
-        function decrementValue(prc)
-        {
-            var price=prc;
-            var value = parseInt(document.getElementById('number').value, 10);
-            value = isNaN(value) ? 0 : value;
-            if(value>1){
-                value--;
-                document.getElementById('number').value = value;
-            }
-            var tot = document.getElementById('tot').innerHTML=price*value;
-        }
-
-    </script>
-
+    
     {% endblock %}
     

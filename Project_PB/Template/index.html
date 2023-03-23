@@ -19,6 +19,28 @@
             <li class="nav-item dropdown">
                 <a class="nav-link text-dark" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{cat.cat_name}}
+                <a class="nav-link text-dark" href="#" >
+                Clothing
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link text-dark" href="{% url 'bags' %}" >
+                Bag
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link text-dark" href="{% url 'accesorries' %}" >
+                Accessories
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link text-dark" href="{% url 'footwear' %}" >
+                Footwear
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link text-dark" href="{% url 'cosmetics' %}" >
+                  Cosmetics
                 </a>
             </li>
             {% endfor %}

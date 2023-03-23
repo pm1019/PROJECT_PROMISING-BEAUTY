@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,HttpResponse
 from django.contrib.auth.models import User, auth
 
 # Create your views here.
@@ -29,8 +29,10 @@ def register(request):
         if password1==password2:
             if User.objects.filter(username=username).exists():
                 message='Username already Taken..'
+                return render(request,'CustRegLog.html',{'msg':message})  
             elif User.objects.filter(email=email).exists():
                 message='Email already Taken..'
+                return render(request,'CustRegLog.html',{'msg':message})
             else:
                 user=User.objects.create_user(username=username,first_name=first_name,last_name=last_name,password=password1,email=email)
                 user.save()
@@ -38,7 +40,7 @@ def register(request):
                 return redirect('login')
         else:
             message='Password not Matching..'
-
+            return render(request,'CustRegLog.html',{'msg':message})
     else:
         return render(request,'CustRegLog.html',{'msg':message})    
 
